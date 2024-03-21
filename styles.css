@@ -1,0 +1,144 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background: navy;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+.container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+body:hover .container{
+  animation: ignite 2s ease-in;
+}
+
+@keyframes ignite {
+  60% { transform: rotate(45deg); }
+  100% {
+    transform: rotate(45deg) translate(500px, -2500px);
+    filter: drop-shadow(0 -5px 5px gold);
+  }
+}
+
+.foguete{
+  position: relative;
+  width: 120px;
+  aspect-ratio: .5;
+  background: #54aeef;
+  border-radius: 50% / 70% 70% 30% 30%;
+
+  display: flex;
+  justify-content: center;
+}
+
+.janela{
+  position: relative;
+  background: #111;
+  top: 25%;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.janela::before{
+  position: absolute;
+  content: "";
+  background: #54aeef;
+  width: inherit;
+  height: inherit;
+  top: 40%;
+  border-radius: 50%;
+}
+
+.asas{
+  position: absolute;
+  width: 200px;
+  height: 70px;
+  
+  bottom: 5%;
+
+  display: flex;
+  justify-content: center;
+
+  overflow: hidden;
+  z-index: -1;
+}
+
+.asas::before{
+  content: "";
+  position: absolute;
+  width: 210px;
+  height: 50px;
+  border-radius: 50%;
+  bottom: -47%;
+  box-shadow: 0 0 0 70px crimson;
+}
+
+.detalhe-asas{
+  position: absolute;
+  width: 120px;
+  height: 46px;
+  background: crimson;
+  bottom: 96px;
+  transform: perspective(1px) rotateX(1deg);
+  z-index: -1;
+}
+
+.asa-meio{
+  position: absolute;
+  background: crimson;
+  width: 35px;
+  aspect-ratio: 1;
+  bottom: -5%;
+  transform: rotate(45deg);
+  border-radius: 0 50%;
+}
+
+.asa-meio::before{
+  content: "";
+  position: absolute;
+  background: inherit;
+  width: inherit;
+  aspect-ratio: .5;
+  border-radius: 50% 50% 0 0;
+  left: 50%;
+  transform:
+    rotateZ(-45deg)
+    translate(0, -90px)
+    perspective(1px)
+    rotateX(.75deg)
+    scaleX(.54)
+  ;
+}
+
+.chama{
+  position: absolute;
+  background: goldenrod;
+  width: 75px;
+  aspect-ratio: 1;
+  border-radius: 0 50%;
+  transform: rotate(45deg);
+  bottom: -25%;
+  z-index: -2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chama::before{
+  content: "";
+  position: absolute;
+  background: gold;
+  width: 45px;
+  aspect-ratio: 1;
+  border-radius: 50% 50% 15% 50%;
+}
